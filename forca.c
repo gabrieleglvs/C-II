@@ -18,14 +18,9 @@ int main() {
 
             int achou = 0;
 
-            printf("Estou vendo a letra secreta %d = %c\n", i, palavrasecreta[i]);
-
             for(int j=0; j<tentativas; j++) {
 
-                printf("--> Chute %d = %c\n", j, chutes[j]);
-
                 if(chutes[j] == palavrasecreta[i]) {
-                    printf("--> chute correto!\n");
                     achou = 1;
                     break;
                 }
