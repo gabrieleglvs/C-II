@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h> // biblioteca para usar o strlen
+#include <string.h>
 
 int main() {
     char palavrasecreta[20];
@@ -9,15 +9,42 @@ int main() {
     int acertou = 0;
     int enforcou = 0;
 
+    char chutes[26]; //ele pode chutar a quantidade de letras do alfabeto
+    int tentativas = 0; // irei contar suas tentativas
+
     do {
 
         for(int i=0; i<strlen(palavrasecreta); i++) {
-            printf("_ ");
+
+            int achou = 0;
+
+            printf("Estou vendo a letra secreta %d = %c\n", i, palavrasecreta[i]);
+
+            for(int j=0; j<tentativas; j++) {
+
+                printf("--> Chute %d = %c\n", j, chutes[j]);
+
+                if(chutes[j] == palavrasecreta[i]) {
+                    printf("--> chute correto!\n");
+                    achou = 1;
+                    break;
+                }
+            }
+
+            if (achou) {
+                printf("%c ", palavrasecreta[i]);
+            } else {
+                printf("_ ");
+            }
         }
         printf("\n");
 
         char chute;
-        scanf(" %c", & chute); //dei espaço para ele não salvar o enter no buffer e bugar o nosso jogo.
+        scanf(" %c", & chute);
+
+        //aqui estou contanto a posição do array chutes pela variável tentativas.
+        chutes[tentativas] = chute;
+        tentativas ++; 
 
     } while (!acertou && !enforcou);
 }
