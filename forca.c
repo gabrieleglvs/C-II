@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h> // biblioteca para usar o strlen
 
 int main() {
     char palavrasecreta[20];
@@ -6,10 +7,17 @@ int main() {
     sprintf(palavrasecreta, "MELANCIA");
 
     int acertou = 0;
-    int enforcou = 0;
+    int enforcou = 1;
 
     do {
-        //começar o nosso jogo!!
-    } while (!acertou && !enforcou);
-    //vamos trocar o == 0 para !acertou, que se lê 'não acertou' ou 'não enforcou'   
+        char chute;
+        scanf("%c", & chute);
+
+        //o strlen lê cada posição do array
+        for(int i=0; i<strlen(palavrasecreta); i++) {
+            if(palavrasecreta[i] == chute) {
+                printf("A posição %d tem essa letra\n", i);
+            }
+        }
+    } while (!acertou && !enforcou); 
 }
