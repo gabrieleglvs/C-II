@@ -7,17 +7,17 @@ int main() {
     sprintf(palavrasecreta, "MELANCIA");
 
     int acertou = 0;
-    int enforcou = 1;
+    int enforcou = 0;
 
     do {
-        char chute;
-        scanf("%c", & chute);
 
-        //o strlen lê cada posição do array
         for(int i=0; i<strlen(palavrasecreta); i++) {
-            if(palavrasecreta[i] == chute) {
-                printf("A posição %d tem essa letra\n", i);
-            }
+            printf("_ ");
         }
-    } while (!acertou && !enforcou); 
+        printf("\n");
+
+        char chute;
+        scanf(" %c", & chute); //dei espaço para ele não salvar o enter no buffer e bugar o nosso jogo.
+
+    } while (!acertou && !enforcou);
 }
