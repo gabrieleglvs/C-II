@@ -9,10 +9,10 @@ void abertura() {
 
 void chuta(char chutes[26], int* tentativas) {
     char chute;
-    scanf(" %c", & chute);
+    scanf(" %c", &chute);
 
     chutes[(*tentativas)] = chute;
-    (*tentativas ++);
+    (*tentativas)++;
 }
 
 int main() {
