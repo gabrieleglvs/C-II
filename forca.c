@@ -9,8 +9,8 @@ int main() {
     int acertou = 0;
     int enforcou = 0;
 
-    char chutes[26]; //ele pode chutar a quantidade de letras do alfabeto
-    int tentativas = 0; // irei contar suas tentativas
+    char chutes[26];
+    int tentativas = 0;
 
     do {
 
@@ -37,7 +37,6 @@ int main() {
         char chute;
         scanf(" %c", & chute);
 
-        //aqui estou contanto a posição do array chutes pela variável tentativas.
         chutes[tentativas] = chute;
         tentativas ++; 
 
