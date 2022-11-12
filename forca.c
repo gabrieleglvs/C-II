@@ -1,11 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-//criando uma função
 void abertura() {
     printf("*****************\n");
     printf("* Jogo de Forca *\n");
     printf("*****************\n\n");
+}
+
+void chuta(char chutes[26], int tentativas) {
+    char chute;
+    scanf(" %c", & chute);
+
+    chutes[tentativas] = chute;
 }
 
 int main() {
@@ -19,7 +25,6 @@ int main() {
     char chutes[26];
     int tentativas = 0;
 
-//executando a função
     abertura();
 
     do {
@@ -44,11 +49,9 @@ int main() {
         }
         printf("\n");
 
-        char chute;
-        scanf(" %c", & chute);
-
-        chutes[tentativas] = chute;
-        tentativas ++; 
+        //captura um novo chute
+        chuta(chutes, tentativas);
+        tentativas ++;
 
     } while (!acertou && !enforcou);
 }
