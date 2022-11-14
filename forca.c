@@ -56,6 +56,12 @@ void escolhepalavra() {
 
     //abri o arquivo
     f = fopen("palavras.txt", "r");
+    
+    //se o arquivo nao abrir por qualquer motivo, eu posso tratar esse erro, já deixando um aviso para o usuario
+    if(f == 0) {
+        printf("Desculpe, banco de dados nao disponivel\n\n");
+        exit(1);
+    }
 
     int qtddepalavras;
     //lendo um arquivo e guardando o num da primeira linha na var qtdpalavras
