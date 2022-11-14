@@ -54,7 +54,7 @@ void desenhaforca() {
 
     //As pernas vão aparecer quando erros for maior do que 4
     printf(" |      %c %c  \n", (erros >= 4 ? '/' : ' '), (erros >= 4 ? '\\' : ' '));
-    
+
     printf(" |             \n");
     printf("_|___          \n");
     printf("\n\n");
@@ -187,4 +187,5 @@ int main() {
         printf("\nPuxa, você foi enforcado!\n");
         printf("A palavra secreta era **%s**\n\n", palavrasecreta);
     }
+    adicionapalavra();
 }
