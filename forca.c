@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-void abertura();
-void chuta();
-int jachutou(char letra);
-void desenhaforca();
-void escolhepalavra();
-int acertou();
-int enforcou();
-
 //Variáveis globais
 char palavrasecreta[20];
 char chutes[26];
