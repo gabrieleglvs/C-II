@@ -50,6 +50,46 @@ void desenhaforca() {
     printf("\n");
 }
 
+void adicionapalavra() {
+    char quer;
+
+    printf("Voce deseja adicionar uma nova palavra no jogo? (S/N)");
+    scanf(" %c", &quer);
+
+    if(quer == 'S') {
+
+        char novapalavra[20];
+        printf("Qual a nova palavra? ");
+        scanf("%s", novapalavra);
+
+        FILE* f;
+
+        //r+ quer dizer leitura e escrita
+        f = fopen("palavras.txt", "r+");
+        //se o arquivo nao abrir por qualquer motivo, eu posso tratar esse erro, já deixando um aviso para o usuario
+        if(f == 0) {
+            printf("Desculpe, banco de dados nao disponivel\n\n");
+            exit(1);
+        }
+
+        //pegou o num que tinha no começo do arquivo e somou um para ele, e logo foi para a linha de baixo
+        int qtd;
+        fscanf(f, "%d", &qtd);
+        qtd++;
+
+        //essa funcao faz com que o ponteiro retorne para a linha zero, (ou seja, nesse caso a linha de cima) e só aí reescreva essa linha com a quantidade nova.
+        fseek(f, 0, SEEK_SET);
+        fprintf(f, "%d", qtd);
+
+        //posicionando o cursor na ultima linha
+        fseek(f, 0, SEEK_END);
+        //escreve a nova palavra no arquivo
+        fprintf(f, "\n%s", novapalavra);
+
+        fclose(f);
+    }
+}
+
 void escolhepalavra() {
     //a var f tem o tipo 'arquivo' e devolve para gente um ponteiro de um arquivo.
     FILE* f;
@@ -114,4 +154,6 @@ int main() {
         chuta();
 
     } while (!acertou() && !enforcou());
+
+    adicionapalavra();
 }
