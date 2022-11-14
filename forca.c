@@ -49,7 +49,24 @@ void desenhaforca() {
 }
 
 void escolhepalavra() {
-    sprintf(palavrasecreta, "MELANCIA");
+    //a var f tem o tipo 'arquivo' e devolve para gente um ponteiro de um arquivo.
+    FILE* f;
+
+    //abri o arquivo
+    f = fopen("palavras.txt", "r");
+
+    int qtddepalavras;
+    //lendo um arquivo e guardando o num da primeira linha na var qtdpalavras
+    fscanf(f, "%d", &qtddepalavras);
+
+    srand(time(0));
+    int randomico = rand() % qtddepalavras;
+
+    for(int i=0; i<=randomico; i++) {
+        fscanf(f, "%s", palavrasecreta);
+    }
+    //fechando o arquivo
+    fclose(f);
 }
 
 int acertou() {
