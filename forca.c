@@ -155,5 +155,10 @@ int main() {
 
     } while (!acertou() && !enforcou());
 
-    adicionapalavra();
+    if(acertou()) {
+        printf("\nParabéns, você ganhou!\n\n");
+    } else {
+        printf("\nPuxa, você foi enforcado!\n");
+        printf("A palavra secreta era **%s**\n\n", palavrasecreta);
+    }
 }
