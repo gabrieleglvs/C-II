@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "forca.h"
 
 //Variáveis globais
 char palavrasecreta[20];
